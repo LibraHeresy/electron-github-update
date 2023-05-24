@@ -2,7 +2,7 @@
   "name": "electron-template",
   "version": "1.0.0",
   "description": "electron 模板",
-  "main": "main.js",
+  "main": "./main.js",
   "repository": "https://github.com/LibraHeresy/electron-template.git",
   "author": "LibraHeresy <34244494988@qq.com>",
   "license": "GPL-3.0",
@@ -17,30 +17,9 @@
     "@electron-forge/maker-rpm": "^6.1.1",
     "@electron-forge/maker-squirrel": "^6.1.1",
     "@electron-forge/maker-zip": "^6.1.1",
-    "electron": "^24.2.0",
-    "electron-builder": "^23.6.0"
+    "electron": "^24.2.0"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0"
-  },
-  "build": {
-    "appId": "com.my-website.my-app",
-    "productName": "MyApp",
-    "asar":true,
-    "copyright": "Copyright © 2023 zhouyang",
-    "mac": {
-      "category": "public.app-category.utilities"
-    },
-    "nsis": {
-      "oneClick": false,
-      "allowToChangeInstallationDirectory": true
-    },
-    "files": [
-      "./**/*"
-    ],
-    "directories": {
-      "buildResources": "assets",
-      "output": "../dist"
-    }
   }
 }

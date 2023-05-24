@@ -16,7 +16,7 @@ const NODE_ENV = process.env.NODE_ENV
 
 const config = {
   production: {
-    loadFile: `file://${path.join(__dirname, './dist/index.html')}`,
+    loadFile: path.join(__dirname, `./index.html`),
   },
   development: {
     loadFile: 'http://localhost:5173/'
@@ -29,24 +29,17 @@ const createWindow = () => {
     height: 600,
   });
 
-  win.loadURL(config[NODE_ENV]?.loadFile || '');
-
-  // 打开开发工具
-  win.webContents.openDevTools()
+  win.loadURL(config[NODE_ENV]?.loadFile || path.join(__dirname, `./index.html`));
 };
 
-app.on("window-all-closed", () => {
-  if (process.platform !== "darwin") app.quit();
-});
+app.on('ready', createWindow);  
 
-app.whenReady().then(() => {
-  createWindow();
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
+}); 
 
-  app.on("activate", () => {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
-  });
-});
-
-try {
-  require('electron-reloader')(module)
-} catch (e) {}
+if (require('electron-squirrel-startup')) {
+  app.quit();
+}

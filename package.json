@@ -13,7 +13,7 @@
     "electron:start": "wait-on tcp:5173 && cd ./electron-app && yarn start",
     "vue:start": "cd ./vue-app && yarn dev",
     "all:start": "cross-env NODE_ENV=development concurrently -k \"yarn vue:start\" \"yarn electron:start\"",
-    "electron:build": "cd ./electron-app && electron-builder",
+    "electron:build": "cd ./electron-app && yarn make",
     "vue:build": "cd ./vue-app && yarn build",
     "all:build": "cross-env NODE_ENV=production yarn vue:build && yarn electron:build"
   },

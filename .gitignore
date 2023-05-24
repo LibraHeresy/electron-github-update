@@ -425,3 +425,7 @@ dist-ssr
 *.sln
 *.sw?
 
+
+electron-app/assets
+electron-app/index.html
+electron-app/vite.svg

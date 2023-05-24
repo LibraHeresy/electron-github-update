@@ -13,7 +13,7 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   base: './',
   build: {
-    outDir: '../electron-app/dist',
+    outDir: '../electron-app',
     emptyOutDir: false,
   },
   plugins: [vue()],
